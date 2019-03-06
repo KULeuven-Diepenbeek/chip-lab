@@ -31,7 +31,7 @@ parser = SpiceParser(path=netlist_path)
 circuit = parser.build_circuit()
 
 circuit.include(spice_library['INVERTER'])
-circuit.include(spice_library['OR2'])
+circuit.include(spice_library['NOR2'])
 
 
 ####################################################################################################
