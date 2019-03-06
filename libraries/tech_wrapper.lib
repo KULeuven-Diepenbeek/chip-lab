@@ -1,0 +1,21 @@
+
+.lib tt
+.include 'FreePDK45/hspice_nom.include'
+
+.subckt MOSN d g s b w='50e-9' l='45e-9' mult='1'
+m1 d g s b NMOS_VTH w=w l=l m=mult
+.ends
+
+
+.subckt MOSP d g s b w='50e-9' l='45e-9' mult='1'
+m1 d g s b PMOS_VTH w=w l=l  m=mult
+.ends
+
+
+.subckt INVERTER input output vdd vss multfac='1'
+xM1 output input vss vss MOSN w='multfac*120e-9' l='45e-9'
+xM2 output input vdd vdd MOSP w='multfac*2*120e-9' l='45e-9'
+.ends
+
+
+.endl
